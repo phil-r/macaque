@@ -1,0 +1,43 @@
+{
+  "name": "macaque",
+  "version": "0.0.1",
+  "description": "[WIP]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "watch-ts": "tsc -w",
+    "watch-js": "nodemon ./dist/index.js",
+    "watch": "concurrently --kill-others 'npm run watch-ts' 'npm run watch-js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phil-r/macaque.git"
+  },
+  "keywords": [
+    "macaque",
+    "monkey"
+  ],
+  "author": "Phil Rukin <philipp@rukin.me> (http://rukin.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phil-r/macaque/issues"
+  },
+  "homepage": "https://github.com/phil-r/macaque#readme",
+  "devDependencies": {
+    "@types/nightmare": "^1.6.30",
+    "@types/node": "^7.0.27",
+    "concurrently": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "nightmare": "^2.10.0"
+  },
+  "engines": {
+    "node": "^8.0.0",
+    "npm": "^5.0.1"
+  }
+}

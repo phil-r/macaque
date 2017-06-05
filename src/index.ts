@@ -2,7 +2,7 @@ const url = require('url');
 
 const queue = require('async/queue');
 
-const macaqueTask = require('./task');
+const macaqueTask = require('./phantomTask');
 
 interface TaskErrors {
   javaScriptErrors: Array<Object>,
@@ -64,7 +64,9 @@ function macaque(urls: Array<string>, workers: number): Promise<Object> {
       // add dummy objects to results. It will ber replaced after check.
       newLinks.forEach(link => (results[link] = { status: 'pending' }));
       const newTasks = newLinks.map(link => ({ url: link }));
-      q.push(newTasks, itemDrain);
+      if (newTasks.length){
+        q.push(newTasks, itemDrain);
+      }
     };
     q.push(urls.map(url => ({ url })), itemDrain);
   });

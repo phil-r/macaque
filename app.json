@@ -1,0 +1,11 @@
+{
+  "name": "why this dont work???? >_<",
+  "buildpacks": [
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

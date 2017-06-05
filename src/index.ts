@@ -72,4 +72,9 @@ function macaque(urls: Array<string>, workers: number): Promise<Object> {
   });
 }
 
+// macaque(['https://requestb.in/1bv7e671'], 1);
+// macaque(['http://course.minutephysics.com/p/60-minute-physics/'], 1);
+macaque(['https://zenmate.com'], 1);
+// macaque(['https://getgrover.com/de'], 1);
+
 module.exports = macaque;

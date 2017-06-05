@@ -11,8 +11,8 @@ async function phantomTask({ url }: { url: string }) {
     const maxRenderWait = 10000;
 
     let count = 0;
-    let forcedRenderTimeout:any;
-    let renderTimeout:any;
+    let forcedRenderTimeout: any;
+    let renderTimeout: any;
 
     const page = await phantom.createPage();
     // await page.setting('resourceTimeout', 5000);
@@ -95,7 +95,15 @@ async function phantomTask({ url }: { url: string }) {
 
     result.status = await page.open(url);
 
-    const { title, location, links } = await page.evaluate(function() {
+    const {
+      title,
+      location,
+      links
+    }: {
+      title: string,
+      location: string,
+      links: Array<string>
+    } = await page.evaluate(function() {
       var title = document.title;
       var location = document.location.toString();
       var links = [];
@@ -108,7 +116,7 @@ async function phantomTask({ url }: { url: string }) {
 
     // console.log({ title, location, links });
     result.title = title;
-    // result.links = Array.from(new Set(links)); // TODO: uncomment
+    result.links = Array.from(new Set(links)); // TODO: uncomment
     if (result.url !== location) {
       result.redirect = location;
     }
